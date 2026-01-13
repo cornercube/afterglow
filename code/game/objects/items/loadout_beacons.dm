@@ -6,6 +6,7 @@
 #define LOADOUT_FLAG_PREMIUM (1<<2)
 #define LOADOUT_FLAG_TRIBAL (1<<3)
 #define LOADOUT_FLAG_PREACHER (1<<4)
+#define LOADOUT_FLAG_SCIENCE (1<<5)
 
 #define LOADOUT_BITFIELD "loadout_bitfield"
 #define LOADOUT_CLASS "loadout_class"
@@ -900,6 +901,16 @@ GLOBAL_LIST_EMPTY(loadout_boxes)
 	new /obj/item/ammo_box/magazine/m45(src)
 	new /obj/item/ammo_box/magazine/m45(src)
 
+/obj/item/storage/box/gun/pistol/needler
+	name = "M1911 case"
+
+/obj/item/storage/box/gun/pistol/needler/PopulateContents()
+	new /obj/item/gun/ballistic/revolver/needler(src)
+	new /obj/item/ammo_box/needle(src)
+	new /obj/item/ammo_box/needle(src)
+	new /obj/item/ammo_box/needle(src)
+	new /obj/item/ammo_box/needle(src)
+
 /// Tribal!
 
 /obj/item/storage/box/gun/tribal //not terribly versed in tribal stuff. someone can give this a bit more love than I
@@ -1030,13 +1041,13 @@ GLOBAL_LIST_EMPTY(loadout_boxes)
 
 /datum/loadout_box/wattz1000
 	entry_tag = "Wattz 1000"
-	entry_flags = LOADOUT_FLAG_WASTER
+	entry_flags = LOADOUT_FLAG_WASTER || LOADOUT_FLAG_SCIENCE
 	entry_class = LOADOUT_CAT_ENERGY
 	spawn_thing = /obj/item/storage/box/gun/energy/wattz1000
 
 /datum/loadout_box/rechargerrifle
 	entry_tag = "Recharger Rifle"
-	entry_flags = LOADOUT_FLAG_WASTER
+	entry_flags = LOADOUT_FLAG_WASTER || LOADOUT_FLAG_SCIENCE
 	entry_class = LOADOUT_CAT_ENERGY
 	spawn_thing = /obj/item/storage/box/gun/energy/rechargerrifle
 
